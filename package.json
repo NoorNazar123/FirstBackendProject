@@ -4,7 +4,7 @@
   "description": "my first project with backend ",
   "main": "index.js",
   "scripts": {
-    "test": "test "
+    "dev": "node index.js"
   },
   "author": "Noor e Nazar",
   "license": "ISC"
