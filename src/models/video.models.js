@@ -1,39 +1,44 @@
 import mongoose, { Schema } from "mongoose";
+import mongooseAggregatePaginate from "mongoose-aggregate-paginate-v2";
 
-const videoSchema = new mongoose.Schema({
-   videoFile: {
+const videoSchema = new mongoose.Schema(
+  {
+    videoFile: {
       type: String, //cloundinary url
-      required: true,   
-   },
-   thambnail: {
+      required: true,
+    },
+    thambnail: {
       type: String, //cloundinary url
-      required: true,    
-   },
-   title: {
-      type: String, 
-      required: true,    
-   },
-   discription: {
-      type: String, 
-      required: true,    
-   },
-   duration: {
+      required: true,
+    },
+    title: {
+      type: String,
+      required: true,
+    },
+    discription: {
+      type: String,
+      required: true,
+    },
+    duration: {
       type: Number, //cloundinary url
-      required: true,    
-   },
-   views: {
-      type: Number, 
-      default: 0,    
-   },
-   isPublished: {
+      required: true,
+    },
+    views: {
+      type: Number,
+      default: 0,
+    },
+    isPublished: {
       type: Boolean,
       default: true,
-   },
-   owner: {
+    },
+    owner: {
       type: Schema.Types.ObjectId,
-      ref: "User"
-   }
+      ref: "User",
+    },
+  },
+  { timestamps: true }
+);
+ 
+videoSchema.plugin(mongooseAggregatePaginate)
 
-},{timestamps: true});
-
-export const Video = mongoose.model("Video", videoSchema)
+export const Video = mongoose.model("Video", videoSchema);
