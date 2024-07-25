@@ -1,7 +1,7 @@
 import mongoose, { Schema } from "mongoose";
 import mongooseAggregatePaginate from "mongoose-aggregate-paginate-v2";
 
-const videoSchema = new mongoose.Schema(
+const videoSchema = new Schema(
   {
     videoFile: {
       type: String, //cloundinary url
@@ -39,6 +39,6 @@ const videoSchema = new mongoose.Schema(
   { timestamps: true }
 );
  
+//to tack video history
 videoSchema.plugin(mongooseAggregatePaginate)
-
 export const Video = mongoose.model("Video", videoSchema);
